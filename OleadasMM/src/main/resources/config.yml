@@ -1,0 +1,70 @@
+# ============================================================
+#  OleadasMM - Oleadas infinitas con MythicMobs
+# ============================================================
+
+settings:
+  # Segundos de espera desde /wave start hasta que empieza la oleada 1
+  start-delay-seconds: 5
+
+  # Limpieza automatica de mobs acumulados
+  clean:
+    enabled: true
+    # Cada cuantos segundos se revisa cuantos mobs de MythicMobs hay vivos
+    check-interval-seconds: 10
+    # Si hay MAS mobs que este numero, se limpia
+    max-mobs: 50
+    # Se matan mobs hasta que queden este numero (se matan primero los mas lejanos a los jugadores)
+    keep-mobs: 10
+    # Mobs (nombre interno de MythicMobs) que NUNCA se limpian, ej. bosses.
+    # Los de la blacklist tampoco cuentan para el maximo.
+    blacklist:
+      - knight_dragon_boss
+
+# ------------------------------------------------------------
+#  OLEADAS - puedes agregar todas las que quieras (1, 2, 3 ... 100 ...)
+#  Las oleadas deben ir en orden seguido: 1, 2, 3...
+#  amount:   cuantos mobs spawnean en total en esta oleada
+#  delay:    segundos entre un mob y el siguiente (admite decimales: 0.5)
+#  mobs:     pool de mobs; cada spawn elige uno al azar de esta lista
+#  nextwave: segundos que pasan DESDE que salio el ultimo mob hasta la
+#            siguiente oleada (hayan matado los mobs o no).
+#  Si la ultima oleada termina su nextwave, la partida acaba y se eliminan
+#  todos los mobs de MythicMobs de la arena.
+# ------------------------------------------------------------
+waves:
+  1:
+    amount: 15
+    delay: 2
+    mobs:
+      - zombie
+      - skeleton
+      - knight_dragon
+    nextwave: 60
+
+placeholders:
+  status-running: "&aEn curso"
+  status-stopped: "&cDetenida"
+  empty-name: "---"
+  empty-position: "-"
+
+messages:
+  prefix: "&8[&cOleadas&8] &r"
+  no-permission: "&cNo tienes permiso."
+  players-only: "&cSolo jugadores pueden usar esto."
+  already-running: "&cYa hay una partida en curso."
+  not-running: "&cNo hay ninguna partida en curso."
+  no-spawnpoints: "&cNo hay puntos de spawn. Usa &e/wave tool&c para crearlos."
+  no-wave-1: "&cNo existe la oleada 1 en la config."
+  game-start: "&aLa partida empieza en &e{seconds}&a segundos."
+  wave-start: "&6&lOleada {wave} &7- &f{amount} mobs"
+  wave-set: "&aSaltando a la oleada &e{wave}&a."
+  wave-not-found: "&cLa oleada {wave} no existe en la config."
+  game-finished: "&a¡Partida terminada! Llegaste hasta la oleada &e{wave}&a."
+  game-forced-end: "&cPartida finalizada. Ultima oleada: &e{wave}&c."
+  reloaded: "&aConfig y puntos de spawn recargados."
+  tool-given: "&aHerramienta entregada. &7Click derecho en un bloque = añadir punto. Click izquierdo = quitar punto cercano."
+  spawn-added: "&aPunto de spawn &e#{n}&a añadido en &f{x}, {y}, {z}&a."
+  spawn-removed: "&aPunto(s) de spawn eliminado(s): &e{count}"
+  spawn-none-near: "&cNo hay ningun punto de spawn cerca de ese bloque."
+  spawn-cleared: "&aTodos los puntos de spawn fueron borrados."
+  spawn-invalid: "&cEse punto no existe."

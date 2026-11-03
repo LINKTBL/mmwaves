@@ -1,0 +1,17 @@
+name: OleadasMM
+version: 1.0.0
+main: com.linktbl.oleadas.OleadasPlugin
+api-version: "26.1.2"
+author: LINKTBL
+description: Sistema de oleadas infinitas con mobs de MythicMobs
+depend: [MythicMobs]
+softdepend: [PlaceholderAPI]
+commands:
+  wave:
+    description: Comando principal de oleadas
+    aliases: [oleadas]
+    usage: /wave help
+permissions:
+  oleadas.admin:
+    description: Permite usar todos los comandos de oleadas
+    default: op
